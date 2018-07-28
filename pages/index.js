@@ -17,14 +17,24 @@ class Index extends React.Component {
       dispatch(fetchApodStart());
     });
 
+    console.log('');
+    console.log('###############################');
+    console.log('### Fetched today NASA APOD ###');
+    console.log('###############################');
     console.log(store.getState().apod);
+    console.log('');
 
     // Fetch custom date NASA APOD
     await store.execSagaTasks(isServer, dispatch => {
       dispatch(fetchApodStart('2018-07-26'));
     });
 
+    console.log('');
+    console.log('#####################################');
+    console.log('### Fetched custom date NASA APOD ###');
+    console.log('#####################################');
     console.log(store.getState().apod);
+    console.log('');
 
     return {};
   }
